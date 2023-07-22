@@ -7,18 +7,80 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001ACF0705500188E80CB069 /* Pods_Compact_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5137A23012267516073645B8 /* Pods_Compact_Schedule.framework */; };
 		9169E5FE2A63C73F00270814 /* Compact_ScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E5FD2A63C73F00270814 /* Compact_ScheduleApp.swift */; };
 		9169E6002A63C73F00270814 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E5FF2A63C73F00270814 /* ContentView.swift */; };
 		9169E6022A63C74000270814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9169E6012A63C74000270814 /* Assets.xcassets */; };
 		9169E6052A63C74000270814 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9169E6042A63C74000270814 /* Preview Assets.xcassets */; };
+		9169E60C2A63C8E900270814 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E60B2A63C8E900270814 /* ScheduleView.swift */; };
+		9169E6132A6626D200270814 /* ScheduleItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6122A6626D200270814 /* ScheduleItemsView.swift */; };
+		9169E6152A6626EE00270814 /* ScheduleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6142A6626EE00270814 /* ScheduleItemView.swift */; };
+		9169E6172A6626F900270814 /* EditScheduleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6162A6626F900270814 /* EditScheduleItemView.swift */; };
+		9169E6192A66270100270814 /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6182A66270100270814 /* ScheduleItem.swift */; };
+		9169E61B2A66279C00270814 /* ScheduleSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E61A2A66279C00270814 /* ScheduleSize.swift */; };
+		9169E61D2A6627D600270814 /* SelectNewScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E61C2A6627D600270814 /* SelectNewScheduleView.swift */; };
+		9169E6212A66286D00270814 /* TimeScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6202A66286D00270814 /* TimeScaleView.swift */; };
+		9169E6242A6628A200270814 /* ShortTickMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6232A6628A200270814 /* ShortTickMark.swift */; };
+		9169E6262A6628B800270814 /* LongTickMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6252A6628B800270814 /* LongTickMark.swift */; };
+		9169E6282A6628C100270814 /* TickMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6272A6628C100270814 /* TickMark.swift */; };
+		9169E62B2A66290C00270814 /* OneHourTickMarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E62A2A66290C00270814 /* OneHourTickMarks.swift */; };
+		9169E62D2A66293700270814 /* Cliped_OneHourTickMarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E62C2A66293700270814 /* Cliped_OneHourTickMarks.swift */; };
+		9169E62F2A6629FD00270814 /* AddScheduleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E62E2A6629FD00270814 /* AddScheduleButton.swift */; };
+		9169E6342A66940900270814 /* ActivityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6332A66940900270814 /* ActivityRow.swift */; };
+		9169E6362A66941800270814 /* AddActivityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6352A66941800270814 /* AddActivityRow.swift */; };
+		9169E63B2A66951C00270814 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E63A2A66951C00270814 /* TaskList.swift */; };
+		9169E6402A6695A400270814 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E63F2A6695A400270814 /* TaskRow.swift */; };
+		9169E6422A6695D800270814 /* ActivityRowFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6412A6695D800270814 /* ActivityRowFrame.swift */; };
+		9169E6442A66966E00270814 /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6432A66966E00270814 /* ActivityManager.swift */; };
+		9169E6462A66968700270814 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6452A66968700270814 /* Activity.swift */; };
+		9169E6482A6696A700270814 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6472A6696A700270814 /* Task.swift */; };
+		9169E64B2A6698A900270814 /* ActivityAndTasksRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E64A2A6698A900270814 /* ActivityAndTasksRow.swift */; };
+		9169E64D2A66990C00270814 /* ActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E64C2A66990C00270814 /* ActivitiesView.swift */; };
+		9169E6532A669E6500270814 /* AddActivityRow_Active.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6522A669E6500270814 /* AddActivityRow_Active.swift */; };
+		9169E6552A669E8B00270814 /* AddActivityRow_Inactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6542A669E8B00270814 /* AddActivityRow_Inactive.swift */; };
+		9169E6572A669EA800270814 /* AddActivityRow_InactiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6562A669EA800270814 /* AddActivityRow_InactiveViewModel.swift */; };
+		9169E65A2A6A337B00270814 /* EditScheduleItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6592A6A337B00270814 /* EditScheduleItemViewModel.swift */; };
+		9169E65C2A6A339500270814 /* DragObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E65B2A6A339500270814 /* DragObserver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D8D68D418C4B27D6B7369DA /* Pods-Compact Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Compact Schedule.debug.xcconfig"; path = "Target Support Files/Pods-Compact Schedule/Pods-Compact Schedule.debug.xcconfig"; sourceTree = "<group>"; };
+		5137A23012267516073645B8 /* Pods_Compact_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Compact_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9169E5FA2A63C73F00270814 /* Compact Schedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Compact Schedule.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9169E5FD2A63C73F00270814 /* Compact_ScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compact_ScheduleApp.swift; sourceTree = "<group>"; };
 		9169E5FF2A63C73F00270814 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9169E6012A63C74000270814 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9169E6042A63C74000270814 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9169E60B2A63C8E900270814 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		9169E6122A6626D200270814 /* ScheduleItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleItemsView.swift; sourceTree = "<group>"; };
+		9169E6142A6626EE00270814 /* ScheduleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleItemView.swift; sourceTree = "<group>"; };
+		9169E6162A6626F900270814 /* EditScheduleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditScheduleItemView.swift; sourceTree = "<group>"; };
+		9169E6182A66270100270814 /* ScheduleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
+		9169E61A2A66279C00270814 /* ScheduleSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSize.swift; sourceTree = "<group>"; };
+		9169E61C2A6627D600270814 /* SelectNewScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNewScheduleView.swift; sourceTree = "<group>"; };
+		9169E6202A66286D00270814 /* TimeScaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeScaleView.swift; sourceTree = "<group>"; };
+		9169E6232A6628A200270814 /* ShortTickMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortTickMark.swift; sourceTree = "<group>"; };
+		9169E6252A6628B800270814 /* LongTickMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongTickMark.swift; sourceTree = "<group>"; };
+		9169E6272A6628C100270814 /* TickMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickMark.swift; sourceTree = "<group>"; };
+		9169E62A2A66290C00270814 /* OneHourTickMarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneHourTickMarks.swift; sourceTree = "<group>"; };
+		9169E62C2A66293700270814 /* Cliped_OneHourTickMarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cliped_OneHourTickMarks.swift; sourceTree = "<group>"; };
+		9169E62E2A6629FD00270814 /* AddScheduleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleButton.swift; sourceTree = "<group>"; };
+		9169E6332A66940900270814 /* ActivityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRow.swift; sourceTree = "<group>"; };
+		9169E6352A66941800270814 /* AddActivityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityRow.swift; sourceTree = "<group>"; };
+		9169E63A2A66951C00270814 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
+		9169E63F2A6695A400270814 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
+		9169E6412A6695D800270814 /* ActivityRowFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRowFrame.swift; sourceTree = "<group>"; };
+		9169E6432A66966E00270814 /* ActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManager.swift; sourceTree = "<group>"; };
+		9169E6452A66968700270814 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		9169E6472A6696A700270814 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		9169E64A2A6698A900270814 /* ActivityAndTasksRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityAndTasksRow.swift; sourceTree = "<group>"; };
+		9169E64C2A66990C00270814 /* ActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesView.swift; sourceTree = "<group>"; };
+		9169E6522A669E6500270814 /* AddActivityRow_Active.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityRow_Active.swift; sourceTree = "<group>"; };
+		9169E6542A669E8B00270814 /* AddActivityRow_Inactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityRow_Inactive.swift; sourceTree = "<group>"; };
+		9169E6562A669EA800270814 /* AddActivityRow_InactiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityRow_InactiveViewModel.swift; sourceTree = "<group>"; };
+		9169E6592A6A337B00270814 /* EditScheduleItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditScheduleItemViewModel.swift; sourceTree = "<group>"; };
+		9169E65B2A6A339500270814 /* DragObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragObserver.swift; sourceTree = "<group>"; };
+		9964D6EDE049B07B2B18A44F /* Pods-Compact Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Compact Schedule.release.xcconfig"; path = "Target Support Files/Pods-Compact Schedule/Pods-Compact Schedule.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				001ACF0705500188E80CB069 /* Pods_Compact_Schedule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +100,8 @@
 			children = (
 				9169E5FC2A63C73F00270814 /* Compact Schedule */,
 				9169E5FB2A63C73F00270814 /* Products */,
+				A6782F351549287CB8FA7E98 /* Pods */,
+				F24166C924C135483B885077 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				9169E5FD2A63C73F00270814 /* Compact_ScheduleApp.swift */,
+				9169E60F2A66268500270814 /* ScheduleView */,
+				9169E6302A662CAF00270814 /* ActivitiesView */,
 				9169E5FF2A63C73F00270814 /* ContentView.swift */,
 				9169E6012A63C74000270814 /* Assets.xcassets */,
 				9169E6032A63C74000270814 /* Preview Content */,
@@ -67,6 +134,171 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		9169E60F2A66268500270814 /* ScheduleView */ = {
+			isa = PBXGroup;
+			children = (
+				9169E60B2A63C8E900270814 /* ScheduleView.swift */,
+				9169E61A2A66279C00270814 /* ScheduleSize.swift */,
+				9169E61F2A66284C00270814 /* TimeScale */,
+				9169E6112A6626C000270814 /* ScheduleItem */,
+				9169E61E2A6627E500270814 /* Overlays */,
+			);
+			path = ScheduleView;
+			sourceTree = "<group>";
+		};
+		9169E6112A6626C000270814 /* ScheduleItem */ = {
+			isa = PBXGroup;
+			children = (
+				9169E6122A6626D200270814 /* ScheduleItemsView.swift */,
+				9169E6142A6626EE00270814 /* ScheduleItemView.swift */,
+				9169E6582A6A335B00270814 /* EditSchedule */,
+				9169E6182A66270100270814 /* ScheduleItem.swift */,
+			);
+			path = ScheduleItem;
+			sourceTree = "<group>";
+		};
+		9169E61E2A6627E500270814 /* Overlays */ = {
+			isa = PBXGroup;
+			children = (
+				9169E61C2A6627D600270814 /* SelectNewScheduleView.swift */,
+				9169E62E2A6629FD00270814 /* AddScheduleButton.swift */,
+			);
+			path = Overlays;
+			sourceTree = "<group>";
+		};
+		9169E61F2A66284C00270814 /* TimeScale */ = {
+			isa = PBXGroup;
+			children = (
+				9169E6202A66286D00270814 /* TimeScaleView.swift */,
+				9169E6292A6628F300270814 /* TickMarks */,
+			);
+			path = TimeScale;
+			sourceTree = "<group>";
+		};
+		9169E6222A66289400270814 /* TickMark */ = {
+			isa = PBXGroup;
+			children = (
+				9169E6232A6628A200270814 /* ShortTickMark.swift */,
+				9169E6252A6628B800270814 /* LongTickMark.swift */,
+				9169E6272A6628C100270814 /* TickMark.swift */,
+			);
+			path = TickMark;
+			sourceTree = "<group>";
+		};
+		9169E6292A6628F300270814 /* TickMarks */ = {
+			isa = PBXGroup;
+			children = (
+				9169E62A2A66290C00270814 /* OneHourTickMarks.swift */,
+				9169E62C2A66293700270814 /* Cliped_OneHourTickMarks.swift */,
+				9169E6222A66289400270814 /* TickMark */,
+			);
+			path = TickMarks;
+			sourceTree = "<group>";
+		};
+		9169E6302A662CAF00270814 /* ActivitiesView */ = {
+			isa = PBXGroup;
+			children = (
+				9169E64C2A66990C00270814 /* ActivitiesView.swift */,
+				9169E6432A66966E00270814 /* ActivityManager.swift */,
+				9169E64E2A669A6A00270814 /* ActivityAndTasksRow */,
+			);
+			path = ActivitiesView;
+			sourceTree = "<group>";
+		};
+		9169E6372A66942700270814 /* ActivityRow */ = {
+			isa = PBXGroup;
+			children = (
+				9169E63C2A66954A00270814 /* 普通Row */,
+				9169E6492A6696C300270814 /* 追加用Row */,
+				9169E6412A6695D800270814 /* ActivityRowFrame.swift */,
+				9169E6452A66968700270814 /* Activity.swift */,
+			);
+			path = ActivityRow;
+			sourceTree = "<group>";
+		};
+		9169E63C2A66954A00270814 /* 普通Row */ = {
+			isa = PBXGroup;
+			children = (
+				9169E6332A66940900270814 /* ActivityRow.swift */,
+			);
+			path = "普通Row";
+			sourceTree = "<group>";
+		};
+		9169E6492A6696C300270814 /* 追加用Row */ = {
+			isa = PBXGroup;
+			children = (
+				9169E6352A66941800270814 /* AddActivityRow.swift */,
+				9169E6512A669E4800270814 /* Inactive(押す前) */,
+				9169E6502A669E2F00270814 /* Active(押した後) */,
+			);
+			path = "追加用Row";
+			sourceTree = "<group>";
+		};
+		9169E64E2A669A6A00270814 /* ActivityAndTasksRow */ = {
+			isa = PBXGroup;
+			children = (
+				9169E64A2A6698A900270814 /* ActivityAndTasksRow.swift */,
+				9169E6372A66942700270814 /* ActivityRow */,
+				9169E64F2A669A7200270814 /* TaskList */,
+			);
+			path = ActivityAndTasksRow;
+			sourceTree = "<group>";
+		};
+		9169E64F2A669A7200270814 /* TaskList */ = {
+			isa = PBXGroup;
+			children = (
+				9169E63A2A66951C00270814 /* TaskList.swift */,
+				9169E63F2A6695A400270814 /* TaskRow.swift */,
+				9169E6472A6696A700270814 /* Task.swift */,
+			);
+			path = TaskList;
+			sourceTree = "<group>";
+		};
+		9169E6502A669E2F00270814 /* Active(押した後) */ = {
+			isa = PBXGroup;
+			children = (
+				9169E6522A669E6500270814 /* AddActivityRow_Active.swift */,
+				9169E6562A669EA800270814 /* AddActivityRow_InactiveViewModel.swift */,
+			);
+			path = "Active(押した後)";
+			sourceTree = "<group>";
+		};
+		9169E6512A669E4800270814 /* Inactive(押す前) */ = {
+			isa = PBXGroup;
+			children = (
+				9169E6542A669E8B00270814 /* AddActivityRow_Inactive.swift */,
+			);
+			path = "Inactive(押す前)";
+			sourceTree = "<group>";
+		};
+		9169E6582A6A335B00270814 /* EditSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				9169E6162A6626F900270814 /* EditScheduleItemView.swift */,
+				9169E6592A6A337B00270814 /* EditScheduleItemViewModel.swift */,
+				9169E65B2A6A339500270814 /* DragObserver.swift */,
+			);
+			path = EditSchedule;
+			sourceTree = "<group>";
+		};
+		A6782F351549287CB8FA7E98 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D8D68D418C4B27D6B7369DA /* Pods-Compact Schedule.debug.xcconfig */,
+				9964D6EDE049B07B2B18A44F /* Pods-Compact Schedule.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F24166C924C135483B885077 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5137A23012267516073645B8 /* Pods_Compact_Schedule.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +306,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9169E6082A63C74000270814 /* Build configuration list for PBXNativeTarget "Compact Schedule" */;
 			buildPhases = (
+				41D44A86D46419EC130D16AA /* [CP] Check Pods Manifest.lock */,
 				9169E5F62A63C73F00270814 /* Sources */,
 				9169E5F72A63C73F00270814 /* Frameworks */,
 				9169E5F82A63C73F00270814 /* Resources */,
+				5E64BAC35762699AC4025D5E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,13 +366,84 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		41D44A86D46419EC130D16AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Compact Schedule-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E64BAC35762699AC4025D5E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Compact Schedule/Pods-Compact Schedule-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Compact Schedule/Pods-Compact Schedule-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Compact Schedule/Pods-Compact Schedule-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9169E5F62A63C73F00270814 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9169E63B2A66951C00270814 /* TaskList.swift in Sources */,
+				9169E6242A6628A200270814 /* ShortTickMark.swift in Sources */,
+				9169E62D2A66293700270814 /* Cliped_OneHourTickMarks.swift in Sources */,
+				9169E6552A669E8B00270814 /* AddActivityRow_Inactive.swift in Sources */,
+				9169E65A2A6A337B00270814 /* EditScheduleItemViewModel.swift in Sources */,
+				9169E6262A6628B800270814 /* LongTickMark.swift in Sources */,
+				9169E6462A66968700270814 /* Activity.swift in Sources */,
+				9169E6362A66941800270814 /* AddActivityRow.swift in Sources */,
+				9169E64B2A6698A900270814 /* ActivityAndTasksRow.swift in Sources */,
+				9169E65C2A6A339500270814 /* DragObserver.swift in Sources */,
+				9169E6422A6695D800270814 /* ActivityRowFrame.swift in Sources */,
+				9169E6482A6696A700270814 /* Task.swift in Sources */,
+				9169E62B2A66290C00270814 /* OneHourTickMarks.swift in Sources */,
+				9169E6442A66966E00270814 /* ActivityManager.swift in Sources */,
+				9169E61B2A66279C00270814 /* ScheduleSize.swift in Sources */,
+				9169E6172A6626F900270814 /* EditScheduleItemView.swift in Sources */,
+				9169E6192A66270100270814 /* ScheduleItem.swift in Sources */,
+				9169E6282A6628C100270814 /* TickMark.swift in Sources */,
+				9169E62F2A6629FD00270814 /* AddScheduleButton.swift in Sources */,
+				9169E6152A6626EE00270814 /* ScheduleItemView.swift in Sources */,
 				9169E6002A63C73F00270814 /* ContentView.swift in Sources */,
+				9169E6342A66940900270814 /* ActivityRow.swift in Sources */,
+				9169E6532A669E6500270814 /* AddActivityRow_Active.swift in Sources */,
 				9169E5FE2A63C73F00270814 /* Compact_ScheduleApp.swift in Sources */,
+				9169E6132A6626D200270814 /* ScheduleItemsView.swift in Sources */,
+				9169E60C2A63C8E900270814 /* ScheduleView.swift in Sources */,
+				9169E6572A669EA800270814 /* AddActivityRow_InactiveViewModel.swift in Sources */,
+				9169E6402A6695A400270814 /* TaskRow.swift in Sources */,
+				9169E61D2A6627D600270814 /* SelectNewScheduleView.swift in Sources */,
+				9169E6212A66286D00270814 /* TimeScaleView.swift in Sources */,
+				9169E64D2A66990C00270814 /* ActivitiesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,9 +566,11 @@
 		};
 		9169E6092A63C74000270814 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D8D68D418C4B27D6B7369DA /* Pods-Compact Schedule.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Compact Schedule/Preview Content\"";
@@ -282,6 +589,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Test.Compact-Schedule";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -290,9 +598,11 @@
 		};
 		9169E60A2A63C74000270814 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9964D6EDE049B07B2B18A44F /* Pods-Compact Schedule.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Compact Schedule/Preview Content\"";
@@ -311,6 +621,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Test.Compact-Schedule";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
