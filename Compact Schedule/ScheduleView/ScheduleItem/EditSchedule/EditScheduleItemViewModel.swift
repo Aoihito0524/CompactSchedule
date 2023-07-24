@@ -9,11 +9,11 @@ import SwiftUI
 
 class EditScheduleItemViewModel: ObservableObject{
     let scheduleItem: ScheduleItem
-    let dragObserver: DragObserver //予定のStart/Endの変更はドラッグで行い、それを管理するための変数
+    let dragObserver: ScheduleDragObserver //予定のStart/Endの変更はドラッグで行い、それを管理するための変数
     @Published var isDragStart = true
     init(scheduleItem: ScheduleItem){
         self.scheduleItem = scheduleItem
-        self.dragObserver = DragObserver(scheduleItem: scheduleItem)
+        self.dragObserver = ScheduleDragObserver(scheduleItem: scheduleItem)
     }
     func SetEdge(location: CGPoint){
         switch dragObserver.dragPosition{

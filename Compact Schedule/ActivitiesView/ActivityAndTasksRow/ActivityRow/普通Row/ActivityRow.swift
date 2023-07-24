@@ -14,7 +14,7 @@ struct ActivityRow: View{
     }
     var body: some View{
         ZStack{
-            ActivityRowFrame(color: $activity.color)
+            ActivityRowFrame(color: activity.color)
             HStack{
                 Text(activity.name)
                     .padding()

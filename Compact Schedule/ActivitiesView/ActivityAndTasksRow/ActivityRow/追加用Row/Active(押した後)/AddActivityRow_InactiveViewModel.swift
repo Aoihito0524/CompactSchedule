@@ -9,14 +9,11 @@ import SwiftUI
 
 class AddActivityRow_ActiveViewModel: ObservableObject{
     @Published var newActivityName = ""
-    private var activityManager: ActivityManager
-    init(activityManager: ActivityManager){
-        self.activityManager = activityManager
-    }
     func AddActivity(){
-        let colors = activityManager.Colors
-        let colorIndex = activityManager.Activities.count % colors.count
-        let newActivity = Activity(name: newActivityName, color: colors[colorIndex])
-        activityManager.AddActivity(newActivity)
+        let activitiesCount = Activity.loadAll().count
+        let colorIndex = activitiesCount % ActivityColor.numColors
+        let color = ActivityColor(colorIndex: colorIndex)
+        let newActivity = Activity(name: newActivityName, activityColor: color)
+        Activity.Add(newActivity)
     }
 }

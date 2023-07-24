@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import RealmSwift
 
-struct ContentView: View {
+struct ContentView: View { @ObservedResults(Activity.self) var items
     var body: some View {
         TabView{
             ScheduleView()
@@ -26,6 +27,12 @@ struct ContentView: View {
                 }
         }
         .tabViewStyle(PageTabViewStyle())
+        //注@realmリセット用
+//        .onAppear{
+//            var config = Realm.Configuration()
+//            config.deleteRealmIfMigrationNeeded = true
+//            let realm = try! Realm(configuration: config)
+//        }
     }
 }
 

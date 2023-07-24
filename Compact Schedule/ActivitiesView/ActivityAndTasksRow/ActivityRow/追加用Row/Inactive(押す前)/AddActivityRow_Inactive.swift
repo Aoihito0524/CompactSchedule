@@ -9,13 +9,13 @@ import SwiftUI
 
 struct AddActivityRow_Inactive: View{
     @Binding var isActive: Bool
-    @State var color = Color.white //@Stateだけどletとして使ってます
+    let color = Color.white
     var body: some View{
         Button(action: {
             isActive = true
         }){
             ZStack{
-                ActivityRowFrame(color: $color)
+                ActivityRowFrame(color: color)
                 Text("活動を追加")
             }
         }

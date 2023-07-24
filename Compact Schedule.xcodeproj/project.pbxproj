@@ -31,7 +31,6 @@
 		9169E63B2A66951C00270814 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E63A2A66951C00270814 /* TaskList.swift */; };
 		9169E6402A6695A400270814 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E63F2A6695A400270814 /* TaskRow.swift */; };
 		9169E6422A6695D800270814 /* ActivityRowFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6412A6695D800270814 /* ActivityRowFrame.swift */; };
-		9169E6442A66966E00270814 /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6432A66966E00270814 /* ActivityManager.swift */; };
 		9169E6462A66968700270814 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6452A66968700270814 /* Activity.swift */; };
 		9169E6482A6696A700270814 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6472A6696A700270814 /* Task.swift */; };
 		9169E64B2A6698A900270814 /* ActivityAndTasksRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E64A2A6698A900270814 /* ActivityAndTasksRow.swift */; };
@@ -40,7 +39,9 @@
 		9169E6552A669E8B00270814 /* AddActivityRow_Inactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6542A669E8B00270814 /* AddActivityRow_Inactive.swift */; };
 		9169E6572A669EA800270814 /* AddActivityRow_InactiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6562A669EA800270814 /* AddActivityRow_InactiveViewModel.swift */; };
 		9169E65A2A6A337B00270814 /* EditScheduleItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6592A6A337B00270814 /* EditScheduleItemViewModel.swift */; };
-		9169E65C2A6A339500270814 /* DragObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E65B2A6A339500270814 /* DragObserver.swift */; };
+		9169E65C2A6A339500270814 /* ScheduleDragObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E65B2A6A339500270814 /* ScheduleDragObserver.swift */; };
+		9169E65E2A6BA9B600270814 /* ActivityColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E65D2A6BA9B600270814 /* ActivityColor.swift */; };
+		9169E6612A6D1D6A00270814 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6602A6D1D6A00270814 /* GlobalConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +71,6 @@
 		9169E63A2A66951C00270814 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		9169E63F2A6695A400270814 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		9169E6412A6695D800270814 /* ActivityRowFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRowFrame.swift; sourceTree = "<group>"; };
-		9169E6432A66966E00270814 /* ActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManager.swift; sourceTree = "<group>"; };
 		9169E6452A66968700270814 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		9169E6472A6696A700270814 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		9169E64A2A6698A900270814 /* ActivityAndTasksRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityAndTasksRow.swift; sourceTree = "<group>"; };
@@ -79,7 +79,9 @@
 		9169E6542A669E8B00270814 /* AddActivityRow_Inactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityRow_Inactive.swift; sourceTree = "<group>"; };
 		9169E6562A669EA800270814 /* AddActivityRow_InactiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityRow_InactiveViewModel.swift; sourceTree = "<group>"; };
 		9169E6592A6A337B00270814 /* EditScheduleItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditScheduleItemViewModel.swift; sourceTree = "<group>"; };
-		9169E65B2A6A339500270814 /* DragObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragObserver.swift; sourceTree = "<group>"; };
+		9169E65B2A6A339500270814 /* ScheduleDragObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDragObserver.swift; sourceTree = "<group>"; };
+		9169E65D2A6BA9B600270814 /* ActivityColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityColor.swift; sourceTree = "<group>"; };
+		9169E6602A6D1D6A00270814 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		9964D6EDE049B07B2B18A44F /* Pods-Compact Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Compact Schedule.release.xcconfig"; path = "Target Support Files/Pods-Compact Schedule/Pods-Compact Schedule.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				9169E5FD2A63C73F00270814 /* Compact_ScheduleApp.swift */,
+				9169E6602A6D1D6A00270814 /* GlobalConstants.swift */,
 				9169E60F2A66268500270814 /* ScheduleView */,
 				9169E6302A662CAF00270814 /* ActivitiesView */,
 				9169E5FF2A63C73F00270814 /* ContentView.swift */,
@@ -199,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				9169E64C2A66990C00270814 /* ActivitiesView.swift */,
-				9169E6432A66966E00270814 /* ActivityManager.swift */,
 				9169E64E2A669A6A00270814 /* ActivityAndTasksRow */,
 			);
 			path = ActivitiesView;
@@ -211,7 +213,7 @@
 				9169E63C2A66954A00270814 /* 普通Row */,
 				9169E6492A6696C300270814 /* 追加用Row */,
 				9169E6412A6695D800270814 /* ActivityRowFrame.swift */,
-				9169E6452A66968700270814 /* Activity.swift */,
+				9169E65F2A6BA9B900270814 /* Acivity */,
 			);
 			path = ActivityRow;
 			sourceTree = "<group>";
@@ -276,9 +278,18 @@
 			children = (
 				9169E6162A6626F900270814 /* EditScheduleItemView.swift */,
 				9169E6592A6A337B00270814 /* EditScheduleItemViewModel.swift */,
-				9169E65B2A6A339500270814 /* DragObserver.swift */,
+				9169E65B2A6A339500270814 /* ScheduleDragObserver.swift */,
 			);
 			path = EditSchedule;
+			sourceTree = "<group>";
+		};
+		9169E65F2A6BA9B900270814 /* Acivity */ = {
+			isa = PBXGroup;
+			children = (
+				9169E6452A66968700270814 /* Activity.swift */,
+				9169E65D2A6BA9B600270814 /* ActivityColor.swift */,
+			);
+			path = Acivity;
 			sourceTree = "<group>";
 		};
 		A6782F351549287CB8FA7E98 /* Pods */ = {
@@ -287,7 +298,6 @@
 				1D8D68D418C4B27D6B7369DA /* Pods-Compact Schedule.debug.xcconfig */,
 				9964D6EDE049B07B2B18A44F /* Pods-Compact Schedule.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -422,11 +432,11 @@
 				9169E6462A66968700270814 /* Activity.swift in Sources */,
 				9169E6362A66941800270814 /* AddActivityRow.swift in Sources */,
 				9169E64B2A6698A900270814 /* ActivityAndTasksRow.swift in Sources */,
-				9169E65C2A6A339500270814 /* DragObserver.swift in Sources */,
+				9169E65C2A6A339500270814 /* ScheduleDragObserver.swift in Sources */,
+				9169E6612A6D1D6A00270814 /* GlobalConstants.swift in Sources */,
 				9169E6422A6695D800270814 /* ActivityRowFrame.swift in Sources */,
 				9169E6482A6696A700270814 /* Task.swift in Sources */,
 				9169E62B2A66290C00270814 /* OneHourTickMarks.swift in Sources */,
-				9169E6442A66966E00270814 /* ActivityManager.swift in Sources */,
 				9169E61B2A66279C00270814 /* ScheduleSize.swift in Sources */,
 				9169E6172A6626F900270814 /* EditScheduleItemView.swift in Sources */,
 				9169E6192A66270100270814 /* ScheduleItem.swift in Sources */,
@@ -439,6 +449,7 @@
 				9169E5FE2A63C73F00270814 /* Compact_ScheduleApp.swift in Sources */,
 				9169E6132A6626D200270814 /* ScheduleItemsView.swift in Sources */,
 				9169E60C2A63C8E900270814 /* ScheduleView.swift in Sources */,
+				9169E65E2A6BA9B600270814 /* ActivityColor.swift in Sources */,
 				9169E6572A669EA800270814 /* AddActivityRow_InactiveViewModel.swift in Sources */,
 				9169E6402A6695A400270814 /* TaskRow.swift in Sources */,
 				9169E61D2A6627D600270814 /* SelectNewScheduleView.swift in Sources */,

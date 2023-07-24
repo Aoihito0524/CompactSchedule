@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct SelectNewScheduleView: View{
-    @ObservedObject var activityManager = ActivityManager.shared
+    @ObservedResults(Activity.self) var activities
     @State var selectedActivity: Activity?
     @State var selection = 0
     @Binding var currentOperate: ScheduleView.Operates
@@ -28,7 +29,7 @@ struct SelectNewScheduleView: View{
                         Text("新しいスケジュール")
                             .padding()
                         Menu(selectedActivity == nil ? "活動を選択" : selectedActivity!.name){
-                            ForEach(activityManager.Activities, id: \.id){ activity in
+                            ForEach(activities, id: \.id){ activity in
                                 Button(activity.name){
                                     selectedActivity = activity
                                 }

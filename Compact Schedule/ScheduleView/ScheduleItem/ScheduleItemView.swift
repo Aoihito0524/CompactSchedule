@@ -52,7 +52,7 @@ struct TagAndTaskView_VerticalLayout: View{
     var body: some View{
         HStack{
             VStack(alignment: .leading){
-                ActivityTag(activity: scheduleItem.activity)
+                ActivityTag(activity: scheduleItem.activity.Copy())
                 Spacer()
                 Text(scheduleItem.task.name)
                     .padding(.leading, taskTextPadding)
@@ -68,7 +68,7 @@ struct TagAndTaskView_HorizontalLayout: View{
     var body: some View{
         VStack{
             HStack{
-                ActivityTag(activity: scheduleItem.activity)
+                ActivityTag(activity: scheduleItem.activity.Copy())
                 Text(scheduleItem.task.name)
                     .padding(.leading, taskTextPadding)
                 Spacer()

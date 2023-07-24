@@ -16,8 +16,10 @@ struct ScheduleItemsView: View{
         ZStack{
             ForEach(scheduleItems, id: \.startDate){item in
                 ScheduleItemView(scheduleItem: item)
+                    .onTapGesture {  } //これをおくとonLongPressGesture付きでもスクロール可能※1
                     .onLongPressGesture(){
                         editingItem = item
+                        currentOperate = .EditSchedule
                     }
             }
             if currentOperate == .EditSchedule, let editingItem = editingItem{
@@ -26,3 +28,5 @@ struct ScheduleItemsView: View{
         }
     }
 }
+
+//※1: https://stackoverflow-com.translate.goog/questions/66185737/swiftui-scrollview-and-onlongpressgesture?_x_tr_sl=en&_x_tr_tl=ja&_x_tr_hl=ja&_x_tr_pto=sc

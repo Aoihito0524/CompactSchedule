@@ -8,19 +8,13 @@
 import SwiftUI
 
 struct AddActivityRow_Active: View{
-    @ObservedObject var activityManager: ActivityManager
     @Binding var isActive: Bool
-    @ObservedObject var VM: AddActivityRow_ActiveViewModel
-    @State var color = Color.white //@Stateだけどletとして使ってます
+    @ObservedObject var VM = AddActivityRow_ActiveViewModel()
+    let color = Color.white
     let addTextColor = Color.black
-    init(isActive: Binding<Bool>, activityManager: ActivityManager){
-        self._isActive = isActive
-        self.activityManager = activityManager
-        VM = AddActivityRow_ActiveViewModel(activityManager: activityManager)
-    }
     var body: some View{
         ZStack{
-            ActivityRowFrame(color: $color)
+            ActivityRowFrame(color: color)
             HStack{
                 TextField("", text: $VM.newActivityName)
                 Button("追加"){

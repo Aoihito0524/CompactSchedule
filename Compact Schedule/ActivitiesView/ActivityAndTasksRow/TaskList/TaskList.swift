@@ -9,9 +9,8 @@ import SwiftUI
 
 struct TaskList: View{
     @ObservedObject var activity: Activity
-    let contentsWidth = ActivityAndTasksRowSize.width * 0.9
     var body: some View{
-        VStack(alignment: .leading){
+        VStack(alignment: .leading, spacing: 0){
             ForEach(activity.tasks){ task in
                 TaskRow(task: task)
             }
@@ -22,6 +21,5 @@ struct TaskList: View{
             .foregroundColor(Color.black)
             .padding()
         }
-        .frame(width: contentsWidth)
     }
 }

@@ -6,17 +6,18 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ActivitiesView: View{
-    @ObservedObject var activityManager = ActivityManager.shared
+    @ObservedResults(Activity.self) var activities
     var body: some View{
         ZStack(alignment: .topLeading){
             ScrollView{
                 VStack(spacing: DEVICE_HEIGHT * 0.02){
-                    ForEach(activityManager.Activities, id: \.name){ activity in
-                        ActivityAndTasksRow(activity: activity)
+                    ForEach(activities, id: \.name){ activity in
+                        ActivityAndTasksRow(activity: activity.Copy())
                     }
-                    AddActivityRow(activityManager: activityManager)
+                    AddActivityRow()
                 }
                 .padding(.top, DEVICE_HEIGHT * 0.18)
                 .frame(width: DEVICE_WIDTH) //これを入れないと幅内に入らないshadowが削れる

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ActivityRowFrame: View{
-    @Binding var color: Color
+    let color: Color
     let width = ActivityAndTasksRowSize.width
     let height = DEVICE_HEIGHT*0.06
     var body: some View{
