@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ScheduleView: View{
-    @State var scheduleItems = [ScheduleItem]()
     @State var editingItem: ScheduleItem?
     @State var tapLocation = CGPoint.zero
+    @State var scrollOffset: CGFloat = 0.0
     @State var currentOperate = Operates.Default
     enum Operates{
         case Default
@@ -18,7 +19,6 @@ struct ScheduleView: View{
         case selectNewPopup
         case EditSchedule
     }
-    @State var scrollOffset: CGFloat = 0.0
     var body: some View{
         ZStack(alignment: .top){
             Rectangle().fill(BACKGROUND_GRAY_COLOR)
@@ -41,18 +41,21 @@ struct ScheduleView: View{
                                 TimeScaleView()
                                 Spacer()
                                 //予定名と枠
-                                ScheduleItemsView(scheduleItems: $scheduleItems,  scrollOffset: $scrollOffset, editingItem: $editingItem, currentOperate: $currentOperate)
+                                ZStack{
+                                    ScheduleItemsView(editingItem: $editingItem, currentOperate: $currentOperate)
+                                    if currentOperate == .EditSchedule{
+                                        ScheduleItem_EditView(editingItem: editingItem!.Copy().freeze(), scrollOffset: $scrollOffset)
+                                    } //@ObservedResultsはRealmオブジェクトを変更した時、View内の全ての子ビューをオブジェクトとの関係に関わらず再描画してしまうため、EditScheduleItemViewは@ObservedResultsを持たないビューの子ビューでないといけない。
+                                }
                             }
-                            //追加ボタン
                             .overlay{
+                                //追加ボタン
                                 if currentOperate == .AddPopup{
                                     AddScheduleButton(currentOperate: $currentOperate, tapPosition: TapPosition())
                                 }
-                            }
-                            //選択画面
-                            .overlay{
+                                //選択画面
                                 if currentOperate == .selectNewPopup{
-                                    SelectNewScheduleView(currentOperate: $currentOperate, editingItem: $editingItem, scheduleItems: $scheduleItems, tapHeight: TapPosition().y)
+                                    SelectNewScheduleView(currentOperate: $currentOperate, editingItem: $editingItem, tapHeight: TapPosition().y)
                                 }
                             }
                         }

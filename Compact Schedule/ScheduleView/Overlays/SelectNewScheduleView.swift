@@ -14,7 +14,6 @@ struct SelectNewScheduleView: View{
     @State var selection = 0
     @Binding var currentOperate: ScheduleView.Operates
     @Binding var editingItem: ScheduleItem?
-    @Binding var scheduleItems: [ScheduleItem]
     let tapHeight: CGFloat
     let width = DEVICE_WIDTH * 0.8
     let height = DEVICE_HEIGHT * 0.15
@@ -50,7 +49,7 @@ struct SelectNewScheduleView: View{
                             let task = selectedActivity!.tasks[selection]
                             let newItem = ScheduleItem(task: task, activity: selectedActivity!, tapHeight: tapHeight)
                             editingItem = newItem
-                            scheduleItems.append(newItem)
+                            ScheduleItem.Add(newItem)
                             currentOperate = .EditSchedule
                         }
                         .padding()

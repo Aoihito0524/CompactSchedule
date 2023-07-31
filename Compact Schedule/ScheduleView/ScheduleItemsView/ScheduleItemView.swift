@@ -6,26 +6,24 @@
 //
 
 import SwiftUI
-
-struct ScheduleItemView: View{
-    @ObservedObject var scheduleItem: ScheduleItem
-    var strokeBorder = false
+import RealmSwift
+        
+struct ScheduleItemView<T: View>: View{
+    @ObservedRealmObject var scheduleItem: ScheduleItem
+    @ViewBuilder var backgroundContent: (CGFloat, CGFloat, CGFloat, Color) -> T
     let width = DEVICE_WIDTH * 0.6
     let paddingWidth = DEVICE_WIDTH * 0.05
     var height: CGFloat{
         get{ return scheduleItem.GetBottomHeight() - scheduleItem.GetTopHeight(); }
     }
-    let borderColor = Color(red: 186.0/255.0, green: 186.0/255.0, blue: 186.0/255.0)
-    let borderWidth = DEVICE_WIDTH * 0.003
     let cornerRadius = ScheduleItemViewSize.cornerRadius
     let thresholdHeight_LayoutChange = DEVICE_HEIGHT * 0.08
     var body: some View{
-        VStack{
+        if scheduleItem.isAlive{
             ZStack(alignment: .leading){
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .fill(scheduleItem.activity.color)
-                    .strokeRectangle(borderColor, width: strokeBorder ? borderWidth : 0, cornerRadius: cornerRadius)//3項演算子でstrokeするかどうかを切り替えてます
-                    .frame(width: width, height: height)
+                //予定の背景部分
+                backgroundContent(width, height, cornerRadius, scheduleItem.activity.color ?? Color.white)
+                //予定の文字部分
                 ZStack{
                     if GetFrameHeight() < thresholdHeight_LayoutChange{
                         TagAndTaskView_HorizontalLayout(scheduleItem: scheduleItem)
@@ -36,9 +34,9 @@ struct ScheduleItemView: View{
                 }
                 .frame(width: width, height: GetFrameHeight())
             }
-            .padding(.top, scheduleItem.GetTopHeight())
-            .padding(.horizontal, paddingWidth)
-            Spacer()
+        }
+        else{
+            EmptyView()
         }
     }
     func GetFrameHeight() -> CGFloat{
@@ -47,33 +45,37 @@ struct ScheduleItemView: View{
 }
 
 struct TagAndTaskView_VerticalLayout: View{
-    @ObservedObject var scheduleItem: ScheduleItem
+    @ObservedRealmObject var scheduleItem: ScheduleItem
     let taskTextPadding = DEVICE_WIDTH * 0.05
     var body: some View{
-        HStack{
-            VStack(alignment: .leading){
-                ActivityTag(activity: scheduleItem.activity.Copy())
-                Spacer()
-                Text(scheduleItem.task.name)
-                    .padding(.leading, taskTextPadding)
+        if scheduleItem.isAlive{
+            HStack{
+                VStack(alignment: .leading){
+                    ActivityTag(activity: scheduleItem.activity)
+                    Spacer()
+                    Text(scheduleItem.task.name)
+                        .padding(.leading, taskTextPadding)
+                    Spacer()
+                }
                 Spacer()
             }
-            Spacer()
         }
     }
 }
 struct TagAndTaskView_HorizontalLayout: View{
-    @ObservedObject var scheduleItem: ScheduleItem
+    @ObservedRealmObject var scheduleItem: ScheduleItem
     let taskTextPadding = DEVICE_WIDTH * 0.05
     var body: some View{
-        VStack{
-            HStack{
-                ActivityTag(activity: scheduleItem.activity.Copy())
-                Text(scheduleItem.task.name)
-                    .padding(.leading, taskTextPadding)
+        if scheduleItem.isAlive{
+            VStack{
+                HStack{
+                    ActivityTag(activity: scheduleItem.activity)
+                    Text(scheduleItem.task.name)
+                        .padding(.leading, taskTextPadding)
+                    Spacer()
+                }
                 Spacer()
             }
-            Spacer()
         }
     }
 }
@@ -83,7 +85,7 @@ class ScheduleItemViewSize{
 }
 
 struct ActivityTag: View{
-    @ObservedObject var activity: Activity
+    @ObservedRealmObject var activity: Activity
     let cornerRadius = ScheduleItemViewSize.cornerRadius
     let color = Color(red: 207.0/255.0, green: 207.0/255.0, blue: 207.0/255.0).opacity(0.3)
     let height = DEVICE_HEIGHT * 0.03
@@ -110,13 +112,6 @@ struct ActivityTag: View{
 }
 
 extension View{
-    func strokeRectangle(_ color: Color, width: CGFloat, cornerRadius: CGFloat) -> some View{
-        ZStack{
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .fill(color)
-            self.padding(width)
-        }
-    }
     //左上と右下のみ丸める
     func roundTwoCorner(cornerRadius: CGFloat) -> some View{
         self.mask(PartlyRoundedCornerView(cornerRadius: cornerRadius, maskedCorners: [.layerMinXMinYCorner, .layerMaxXMaxYCorner]))

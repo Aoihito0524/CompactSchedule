@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ActivityAndTasksRow: View{
-    @ObservedObject var activity: Activity
+    @ObservedRealmObject var activity: Activity
     @State var isOpen = false
     let taskListBackgroundColor = Color.white
     var body: some View{

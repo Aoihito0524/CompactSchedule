@@ -9,22 +9,18 @@ import SwiftUI
 import RealmSwift
 
 class Activity: Object, Identifiable{
-    @Persisted var Name: String
+    @Persisted var name: String
     @Persisted private var activityColor: ActivityColor?
     @Persisted var tasks = RealmSwift.List<Task>()
     @Persisted(primaryKey: true) var id: String = UUID().uuidString
-    var name: String{
-        get{ return Name}
-        set{ try! realm_.write{ self.Name = newValue } }
-    }
     var color: Color{
-        get{ return activityColor!.color}
+        get{ return (activityColor?.color)!}
     }
     override init(){
         super.init()
     }
     init(name: String, activityColor: ActivityColor){
-        self.Name = name
+        self.name = name
         self.activityColor = activityColor
     }
     func AddTask(_ task: Task){
@@ -34,7 +30,7 @@ class Activity: Object, Identifiable{
     }
     //frozen対策
     func Copy() -> Activity{
-        return (realm_.object(ofType: Activity.self, forPrimaryKey: id))!
+        return self//Activity.Get(id: self.id)!
     }
 }
 
@@ -45,6 +41,21 @@ extension Activity{
     static func Add(_ activity: Activity){
         try! realm_.write {
             realm_.add(activity)
+        }
+    }
+    static func Delete(_ activity: Activity){
+        try! realm_.write {
+            realm_.delete(activity)
+        }
+    }
+    static func Get(id: String) -> Activity?{
+        let activity = realm_.object(ofType: Activity.self, forPrimaryKey: id)
+        if let activity = activity{
+            return activity
+        }
+        else{
+            print("activityのidが無効です")
+            return nil
         }
     }
 }

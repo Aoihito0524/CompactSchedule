@@ -15,7 +15,7 @@ struct ActivitiesView: View{
             ScrollView{
                 VStack(spacing: DEVICE_HEIGHT * 0.02){
                     ForEach(activities, id: \.name){ activity in
-                        ActivityAndTasksRow(activity: activity.Copy())
+                        ActivityAndTasksRow(activity: activity)
                     }
                     AddActivityRow()
                 }

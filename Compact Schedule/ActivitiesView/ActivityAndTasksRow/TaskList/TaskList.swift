@@ -6,18 +6,16 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct TaskList: View{
-    @ObservedObject var activity: Activity
+    @ObservedRealmObject var activity: Activity
     var body: some View{
         VStack(alignment: .leading, spacing: 0){
             ForEach(activity.tasks){ task in
                 TaskRow(task: task)
             }
-            Button("+ タスクを追加"){
-                let newTask = Task(name: "", minutes: 20)
-                activity.AddTask(newTask)
-            }
+            AddTaskButton(activity: activity)
             .foregroundColor(Color.black)
             .padding()
         }

@@ -37,15 +37,12 @@ class ScheduleDragObserver{
         else{
             dragPosition = DragPosition.body
         }
-        print("dragPosition: \(dragPosition)")
     }
     private func SetFirstTapDistances(point: CGPoint, scrollOffset: CGFloat){
         let topHeight = scheduleItem.GetTopHeight()
         let bottomHeight = scheduleItem.GetBottomHeight()
         firstTapDistanceFromTop = abs(topHeight - (point.y - scrollOffset))
         firstTapDistanceFromBottom = abs(bottomHeight - (point.y - scrollOffset))
-        print("topDistance: \(firstTapDistanceFromTop)")
-        print("bottomDistance: \(firstTapDistanceFromBottom)")
     }
     private func IsTopEdge() -> Bool{
         return firstTapDistanceFromTop < maxTapDistance

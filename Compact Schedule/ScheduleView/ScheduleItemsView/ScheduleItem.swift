@@ -6,15 +6,42 @@
 //
 
 import SwiftUI
+import RealmSwift
 
-class ScheduleItem: ObservableObject{
-    @Published var activity: Activity
-    @Published var task: Task
-    @Published var startDate = Date()
-    @Published var endDate = Date()
+class ScheduleItem: Object, Identifiable{
+    @Persisted private var activityId: String
+    var activity: Activity{
+        get{ return Activity.Get(id: activityId)! }
+        set{ try! realm_.write{ activityId = newValue.id }}
+    }
+    @Persisted private var taskId: String
+    var task: Task{
+        get{ return Task.Get(id: taskId)! }
+        set{ try! realm_.write{ taskId = newValue.id }}
+    }
+    @Persisted private var startDate_ = Date()
+    var startDate: Date{ //startDateはViewModelから
+        get{ return startDate_ }
+        set{ try! realm_.write{ startDate_ = newValue }}
+    }
+    @Persisted private var endDate_ = Date()
+    var endDate: Date{
+        get{ return endDate_ }
+        set{ try! realm_.write{ endDate_ = newValue }}
+    }
+    @Persisted(primaryKey: true) var id: String = UUID().uuidString
+    /*Computed PropertyはRealmのオブジェクトが削除された後もアクセスされることがある。
+    ↓アクセス可能かを取得する変数*/
+    var isAlive: Bool{
+        get{ return Activity.Get(id: activityId) != nil && Task.Get(id: taskId) != nil }
+    }
+    override init(){
+        super.init()
+    }
     init(task: Task, activity: Activity, tapHeight: CGFloat){
-        self.activity = activity
-        self.task = task
+        super.init()
+        self.activityId = activity.id
+        self.taskId = task.id
         SetStartDate(height: tapHeight)
         endDate = oneHourLater(from: startDate)
     }
@@ -37,9 +64,7 @@ class ScheduleItem: ObservableObject{
         endDate = Calendar.current.date(byAdding: .minute, value: 10, to: startDate)!
     }
     func SetEndDate(height: CGFloat){
-        print("endDateBefore: \(endDate)")
         endDate = HeightToDate(height: height)
-        print("endDateAfter: \(endDate)")
         if isMoreThan10Min(){return;}
         startDate = Calendar.current.date(byAdding: .minute, value: -10, to: endDate)!
     }
@@ -55,7 +80,7 @@ class ScheduleItem: ObservableObject{
         let daysDifference = time["day"]! - nowTime["day"]!
         let hoursDifference = time["hour"]! - nowTime["hour"]!
         let minutesDifference = time["minute"]! - nowTime["minute"]!
-        var hoursCGFloat_UntilTime
+        let hoursCGFloat_UntilTime
             = daysDifference * 24.0 + hoursDifference + minutesDifference / 60.0
         let height = hoursCGFloat_UntilTime * ScheduleSize.oneHourHeight
         return height
@@ -67,5 +92,25 @@ class ScheduleItem: ObservableObject{
         let now = Date()
         let date = Calendar.current.date(byAdding: .minute, value: minutes_UntilTime, to: now)!
         return date
+    }
+    //frozen対策
+    func Copy() -> ScheduleItem{
+        return (realm_.object(ofType: ScheduleItem.self, forPrimaryKey: id))!
+    }
+}
+
+extension ScheduleItem{
+    static func Get(id: String) -> ScheduleItem?{
+        return realm_.object(ofType: ScheduleItem.self, forPrimaryKey: id)
+    }
+    static func Add(_ scheduleItem: ScheduleItem){
+        try! realm_.write{
+            realm_.add(scheduleItem)
+        }
+    }
+    static func Delete(_ scheduleItem: ScheduleItem){
+        try! realm_.write{
+            realm_.delete(scheduleItem)
+        }
     }
 }

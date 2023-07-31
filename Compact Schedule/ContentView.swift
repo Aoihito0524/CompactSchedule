@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-struct ContentView: View { @ObservedResults(Activity.self) var items
+struct ContentView: View {
     var body: some View {
         TabView{
             ScheduleView()
@@ -32,7 +32,8 @@ struct ContentView: View { @ObservedResults(Activity.self) var items
 //            var config = Realm.Configuration()
 //            config.deleteRealmIfMigrationNeeded = true
 //            let realm = try! Realm(configuration: config)
-//        }
+//            realm.deleteAll()
+//        }//
     }
 }
 

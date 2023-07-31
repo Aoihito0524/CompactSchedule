@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class EditScheduleItemViewModel: ObservableObject{
+class ScheduleItem_EditViewModel: ObservableObject{
     let scheduleItem: ScheduleItem
     let dragObserver: ScheduleDragObserver //予定のStart/Endの変更はドラッグで行い、それを管理するための変数
     @Published var isDragStart = true
