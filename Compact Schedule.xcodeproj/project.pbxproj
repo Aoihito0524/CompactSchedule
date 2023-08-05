@@ -51,6 +51,7 @@
 		9169E6742A7760A200270814 /* ScheduleItem_DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6732A7760A200270814 /* ScheduleItem_DisplayView.swift */; };
 		9169E6762A7A2A3D00270814 /* RealtimeDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6752A7A2A3D00270814 /* RealtimeDate.swift */; };
 		9169E6792A7A42C600270814 /* ScheduleItemViewSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6782A7A42C600270814 /* ScheduleItemViewSize.swift */; };
+		9169E67D2A7E2E0200270814 /* ContentView_forScreenShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E67C2A7E2E0200270814 /* ContentView_forScreenShot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		9169E6732A7760A200270814 /* ScheduleItem_DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleItem_DisplayView.swift; sourceTree = "<group>"; };
 		9169E6752A7A2A3D00270814 /* RealtimeDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDate.swift; sourceTree = "<group>"; };
 		9169E6782A7A42C600270814 /* ScheduleItemViewSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleItemViewSize.swift; sourceTree = "<group>"; };
+		9169E67C2A7E2E0200270814 /* ContentView_forScreenShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView_forScreenShot.swift; sourceTree = "<group>"; };
 		9964D6EDE049B07B2B18A44F /* Pods-Compact Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Compact Schedule.release.xcconfig"; path = "Target Support Files/Pods-Compact Schedule/Pods-Compact Schedule.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 				9169E60F2A66268500270814 /* ScheduleView */,
 				9169E6302A662CAF00270814 /* ActivitiesView */,
 				9169E5FF2A63C73F00270814 /* ContentView.swift */,
+				9169E67C2A7E2E0200270814 /* ContentView_forScreenShot.swift */,
 				9169E6012A63C74000270814 /* Assets.xcassets */,
 				9169E6032A63C74000270814 /* Preview Content */,
 			);
@@ -506,6 +509,7 @@
 				9169E6262A6628B800270814 /* LongTickMark.swift in Sources */,
 				9169E6462A66968700270814 /* Activity.swift in Sources */,
 				9169E66A2A775B9900270814 /* ScheduleItemBackground.swift in Sources */,
+				9169E67D2A7E2E0200270814 /* ContentView_forScreenShot.swift in Sources */,
 				9169E6362A66941800270814 /* AddActivityRow.swift in Sources */,
 				9169E64B2A6698A900270814 /* ActivityAndTasksRow.swift in Sources */,
 				9169E65C2A6A339500270814 /* ScheduleDragObserver.swift in Sources */,
@@ -672,6 +676,7 @@
 				DEVELOPMENT_TEAM = X95VKDC284;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "コンパクト予定表";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -682,7 +687,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Test.Compact-Schedule";
+				PRODUCT_BUNDLE_IDENTIFIER = "aoihito0524.Compact-Schedule";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -704,6 +709,7 @@
 				DEVELOPMENT_TEAM = X95VKDC284;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "コンパクト予定表";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -714,7 +720,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Test.Compact-Schedule";
+				PRODUCT_BUNDLE_IDENTIFIER = "aoihito0524.Compact-Schedule";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
