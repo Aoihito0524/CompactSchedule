@@ -17,6 +17,7 @@ struct AddActivityRow_Inactive: View{
             ZStack{
                 ActivityRowFrame(color: color)
                 Text("活動を追加")
+                    .foregroundColor(Color.black)
             }
         }
     }

@@ -13,6 +13,7 @@ struct ScheduleView: View{
     @State var tapLocation = CGPoint.zero
     @State var scrollOffset: CGFloat = 0.0
     @State var currentOperate = Operates.Default
+    @Environment(\.scenePhase) private var scenePhase
     enum Operates{
         case Default
         case AddPopup
@@ -21,8 +22,6 @@ struct ScheduleView: View{
     }
     var body: some View{
         ZStack(alignment: .top){
-            Rectangle().fill(BACKGROUND_GRAY_COLOR)
-                .ignoresSafeArea()
             ScrollView{
                 VStack{
                     Rectangle().fill(Color.clear)
@@ -41,10 +40,10 @@ struct ScheduleView: View{
                                 TimeScaleView()
                                 Spacer()
                                 //予定名と枠
-                                ZStack{
+                                ZStack(alignment: .trailing){
                                     ScheduleItemsView(editingItem: $editingItem, currentOperate: $currentOperate)
                                     if currentOperate == .EditSchedule{
-                                        ScheduleItem_EditView(editingItem: editingItem!.Copy().freeze(), scrollOffset: $scrollOffset)
+                                        ScheduleItem_EditView(editingItem: editingItem!, currentOperate: $currentOperate, scrollOffset: $scrollOffset)
                                     } //@ObservedResultsはRealmオブジェクトを変更した時、View内の全ての子ビューをオブジェクトとの関係に関わらず再描画してしまうため、EditScheduleItemViewは@ObservedResultsを持たないビューの子ビューでないといけない。
                                 }
                             }
@@ -64,8 +63,21 @@ struct ScheduleView: View{
                     }
                 }
             }
+            .background(BACKGROUND_GRAY_COLOR)
             topItem_ScheduleView()
                 .padding(.top, DEVICE_HEIGHT * 0.03)
+        }
+        .onAppear{
+            RealtimeDate.shared.SetTimer()
+        }
+        .onChange(of: scenePhase) { phase in
+            if phase == .active {
+                RealtimeDate.shared.date = Date()
+                RealtimeDate.shared.SetTimer()
+            }
+            if phase == .inactive {
+                RealtimeDate.shared.StopTimer()
+            }
         }
     }
     func toggle_AddPopupOrNot(){

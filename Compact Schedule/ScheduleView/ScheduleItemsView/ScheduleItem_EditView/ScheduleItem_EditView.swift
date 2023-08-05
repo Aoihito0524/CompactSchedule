@@ -10,11 +10,14 @@ import RealmSwift
 
 struct ScheduleItem_EditView: View{
     @ObservedRealmObject var editingItem: ScheduleItem
+    @Binding var currentOperate: ScheduleView.Operates
     @Binding var scrollOffset: CGFloat
     @ObservedObject var VM: ScheduleItem_EditViewModel
-    init(editingItem: ScheduleItem, scrollOffset: Binding<CGFloat>){
+    let horizontalPadding = DEVICE_WIDTH * 0.07
+    init(editingItem: ScheduleItem, currentOperate: Binding<ScheduleView.Operates>, scrollOffset: Binding<CGFloat>){
         self.editingItem = editingItem
         self._scrollOffset = scrollOffset
+        self._currentOperate = currentOperate
         VM = ScheduleItem_EditViewModel(scheduleItem: editingItem.thaw()!)
     }
     var body: some View{
@@ -22,12 +25,16 @@ struct ScheduleItem_EditView: View{
             EditScheduleItemBackground(width: width, height: height, cornerRadius: cornerRadius, color: color)
         }
         .overlay(alignment: .topTrailing){
-            Button(action: {ScheduleItem.Delete(editingItem.thaw()!)}){
+            Button(action: {
+                currentOperate = .Default
+                ScheduleItem.Delete(editingItem.thaw()!)
+            }){
                 Image(systemName: "trash")
             }
         }
         .setScrollTop()
         .padding(.top, editingItem.GetTopHeight())
+        .padding(.horizontal, horizontalPadding)
         .gesture(DragGesture(minimumDistance: 0.0)
             .onChanged{value in
                 let location = value.location

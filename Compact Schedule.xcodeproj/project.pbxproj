@@ -15,7 +15,7 @@
 		9169E60C2A63C8E900270814 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E60B2A63C8E900270814 /* ScheduleView.swift */; };
 		9169E6132A6626D200270814 /* ScheduleItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6122A6626D200270814 /* ScheduleItemsView.swift */; };
 		9169E6152A6626EE00270814 /* ScheduleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6142A6626EE00270814 /* ScheduleItemView.swift */; };
-		9169E6172A6626F900270814 /* EditScheduleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6162A6626F900270814 /* EditScheduleItemView.swift */; };
+		9169E6172A6626F900270814 /* ScheduleItem_EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6162A6626F900270814 /* ScheduleItem_EditView.swift */; };
 		9169E6192A66270100270814 /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6182A66270100270814 /* ScheduleItem.swift */; };
 		9169E61B2A66279C00270814 /* ScheduleSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E61A2A66279C00270814 /* ScheduleSize.swift */; };
 		9169E61D2A6627D600270814 /* SelectNewScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E61C2A6627D600270814 /* SelectNewScheduleView.swift */; };
@@ -38,7 +38,7 @@
 		9169E6532A669E6500270814 /* AddActivityRow_Active.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6522A669E6500270814 /* AddActivityRow_Active.swift */; };
 		9169E6552A669E8B00270814 /* AddActivityRow_Inactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6542A669E8B00270814 /* AddActivityRow_Inactive.swift */; };
 		9169E6572A669EA800270814 /* AddActivityRow_InactiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6562A669EA800270814 /* AddActivityRow_InactiveViewModel.swift */; };
-		9169E65A2A6A337B00270814 /* EditScheduleItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6592A6A337B00270814 /* EditScheduleItemViewModel.swift */; };
+		9169E65A2A6A337B00270814 /* ScheduleItem_EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6592A6A337B00270814 /* ScheduleItem_EditViewModel.swift */; };
 		9169E65C2A6A339500270814 /* ScheduleDragObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E65B2A6A339500270814 /* ScheduleDragObserver.swift */; };
 		9169E65E2A6BA9B600270814 /* ActivityColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E65D2A6BA9B600270814 /* ActivityColor.swift */; };
 		9169E6612A6D1D6A00270814 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6602A6D1D6A00270814 /* GlobalConstants.swift */; };
@@ -49,6 +49,8 @@
 		9169E66C2A775BA800270814 /* EditScheduleItemBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E66B2A775BA800270814 /* EditScheduleItemBackground.swift */; };
 		9169E6722A775E9400270814 /* setScrollTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6712A775E9400270814 /* setScrollTop.swift */; };
 		9169E6742A7760A200270814 /* ScheduleItem_DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6732A7760A200270814 /* ScheduleItem_DisplayView.swift */; };
+		9169E6762A7A2A3D00270814 /* RealtimeDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6752A7A2A3D00270814 /* RealtimeDate.swift */; };
+		9169E6792A7A42C600270814 /* ScheduleItemViewSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169E6782A7A42C600270814 /* ScheduleItemViewSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +64,7 @@
 		9169E60B2A63C8E900270814 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		9169E6122A6626D200270814 /* ScheduleItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleItemsView.swift; sourceTree = "<group>"; };
 		9169E6142A6626EE00270814 /* ScheduleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleItemView.swift; sourceTree = "<group>"; };
-		9169E6162A6626F900270814 /* EditScheduleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditScheduleItemView.swift; sourceTree = "<group>"; };
+		9169E6162A6626F900270814 /* ScheduleItem_EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleItem_EditView.swift; sourceTree = "<group>"; };
 		9169E6182A66270100270814 /* ScheduleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
 		9169E61A2A66279C00270814 /* ScheduleSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSize.swift; sourceTree = "<group>"; };
 		9169E61C2A6627D600270814 /* SelectNewScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNewScheduleView.swift; sourceTree = "<group>"; };
@@ -85,7 +87,7 @@
 		9169E6522A669E6500270814 /* AddActivityRow_Active.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityRow_Active.swift; sourceTree = "<group>"; };
 		9169E6542A669E8B00270814 /* AddActivityRow_Inactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityRow_Inactive.swift; sourceTree = "<group>"; };
 		9169E6562A669EA800270814 /* AddActivityRow_InactiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityRow_InactiveViewModel.swift; sourceTree = "<group>"; };
-		9169E6592A6A337B00270814 /* EditScheduleItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditScheduleItemViewModel.swift; sourceTree = "<group>"; };
+		9169E6592A6A337B00270814 /* ScheduleItem_EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleItem_EditViewModel.swift; sourceTree = "<group>"; };
 		9169E65B2A6A339500270814 /* ScheduleDragObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDragObserver.swift; sourceTree = "<group>"; };
 		9169E65D2A6BA9B600270814 /* ActivityColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityColor.swift; sourceTree = "<group>"; };
 		9169E6602A6D1D6A00270814 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
@@ -96,6 +98,8 @@
 		9169E66B2A775BA800270814 /* EditScheduleItemBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditScheduleItemBackground.swift; sourceTree = "<group>"; };
 		9169E6712A775E9400270814 /* setScrollTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setScrollTop.swift; sourceTree = "<group>"; };
 		9169E6732A7760A200270814 /* ScheduleItem_DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleItem_DisplayView.swift; sourceTree = "<group>"; };
+		9169E6752A7A2A3D00270814 /* RealtimeDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDate.swift; sourceTree = "<group>"; };
+		9169E6782A7A42C600270814 /* ScheduleItemViewSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleItemViewSize.swift; sourceTree = "<group>"; };
 		9964D6EDE049B07B2B18A44F /* Pods-Compact Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Compact Schedule.release.xcconfig"; path = "Target Support Files/Pods-Compact Schedule/Pods-Compact Schedule.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +164,7 @@
 				9169E61F2A66284C00270814 /* TimeScale */,
 				9169E6112A6626C000270814 /* ScheduleItemsView */,
 				9169E61E2A6627E500270814 /* Overlays */,
+				9169E6772A7A2A4E00270814 /* RealtimeDate */,
 			);
 			path = ScheduleView;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				9169E66F2A775E1F00270814 /* ScheduleItem_DisplayView */,
 				9169E6582A6A335B00270814 /* ScheduleItem_EditView */,
 				9169E6182A66270100270814 /* ScheduleItem.swift */,
+				9169E6782A7A42C600270814 /* ScheduleItemViewSize.swift */,
 				9169E6142A6626EE00270814 /* ScheduleItemView.swift */,
 			);
 			path = ScheduleItemsView;
@@ -293,8 +299,8 @@
 		9169E6582A6A335B00270814 /* ScheduleItem_EditView */ = {
 			isa = PBXGroup;
 			children = (
-				9169E6162A6626F900270814 /* EditScheduleItemView.swift */,
-				9169E6592A6A337B00270814 /* EditScheduleItemViewModel.swift */,
+				9169E6162A6626F900270814 /* ScheduleItem_EditView.swift */,
+				9169E6592A6A337B00270814 /* ScheduleItem_EditViewModel.swift */,
 				9169E66D2A775DCB00270814 /* background */,
 				9169E66E2A775DF100270814 /* DragObserver */,
 			);
@@ -351,6 +357,14 @@
 				9169E6692A775B9900270814 /* ScheduleItemBackground.swift */,
 			);
 			path = background;
+			sourceTree = "<group>";
+		};
+		9169E6772A7A2A4E00270814 /* RealtimeDate */ = {
+			isa = PBXGroup;
+			children = (
+				9169E6752A7A2A3D00270814 /* RealtimeDate.swift */,
+			);
+			path = RealtimeDate;
 			sourceTree = "<group>";
 		};
 		A6782F351549287CB8FA7E98 /* Pods */ = {
@@ -488,7 +502,7 @@
 				9169E6242A6628A200270814 /* ShortTickMark.swift in Sources */,
 				9169E62D2A66293700270814 /* Cliped_OneHourTickMarks.swift in Sources */,
 				9169E6552A669E8B00270814 /* AddActivityRow_Inactive.swift in Sources */,
-				9169E65A2A6A337B00270814 /* EditScheduleItemViewModel.swift in Sources */,
+				9169E65A2A6A337B00270814 /* ScheduleItem_EditViewModel.swift in Sources */,
 				9169E6262A6628B800270814 /* LongTickMark.swift in Sources */,
 				9169E6462A66968700270814 /* Activity.swift in Sources */,
 				9169E66A2A775B9900270814 /* ScheduleItemBackground.swift in Sources */,
@@ -497,15 +511,17 @@
 				9169E65C2A6A339500270814 /* ScheduleDragObserver.swift in Sources */,
 				9169E6612A6D1D6A00270814 /* GlobalConstants.swift in Sources */,
 				9169E6422A6695D800270814 /* ActivityRowFrame.swift in Sources */,
+				9169E6792A7A42C600270814 /* ScheduleItemViewSize.swift in Sources */,
 				9169E6482A6696A700270814 /* Task.swift in Sources */,
 				9169E62B2A66290C00270814 /* OneHourTickMarks.swift in Sources */,
 				9169E61B2A66279C00270814 /* ScheduleSize.swift in Sources */,
-				9169E6172A6626F900270814 /* EditScheduleItemView.swift in Sources */,
+				9169E6172A6626F900270814 /* ScheduleItem_EditView.swift in Sources */,
 				9169E6192A66270100270814 /* ScheduleItem.swift in Sources */,
 				9169E6282A6628C100270814 /* TickMark.swift in Sources */,
 				9169E62F2A6629FD00270814 /* AddScheduleButton.swift in Sources */,
 				9169E6152A6626EE00270814 /* ScheduleItemView.swift in Sources */,
 				9169E6002A63C73F00270814 /* ContentView.swift in Sources */,
+				9169E6762A7A2A3D00270814 /* RealtimeDate.swift in Sources */,
 				9169E6342A66940900270814 /* ActivityRow.swift in Sources */,
 				9169E6742A7760A200270814 /* ScheduleItem_DisplayView.swift in Sources */,
 				9169E6532A669E6500270814 /* AddActivityRow_Active.swift in Sources */,

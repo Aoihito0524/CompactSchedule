@@ -12,9 +12,11 @@ struct ScheduleItemBackground: View{
     let height: CGFloat
     let cornerRadius: CGFloat
     let color: Color
+    let shadowColor = Color.black.opacity(0.25)
     var body: some View{
         RoundedRectangle(cornerRadius: cornerRadius)
             .fill(color)
             .frame(width: width, height: height)
+            .shadow(color: shadowColor, radius: 2, y: 4)
     }
 }

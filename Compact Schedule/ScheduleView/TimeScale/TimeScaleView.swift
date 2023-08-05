@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TimeScaleView: View{
     let hours_inADay = 24
+    @ObservedObject var realtimeDate = RealtimeDate.shared
     var body: some View{
         VStack(alignment: .leading, spacing: 0){
             let currentTime = GetCurrentTime()
@@ -22,7 +23,7 @@ struct TimeScaleView: View{
     }
     func GetCurrentTime() -> [String: Int]{
         let calendar = Calendar(identifier: .gregorian)
-        let date = Date()
+        let date = realtimeDate.date
         let hour = calendar.component(.hour, from: date)
         let minute = calendar.component(.minute, from: date)
         return ["hour": hour, "minute": minute]

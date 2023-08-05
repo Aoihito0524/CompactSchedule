@@ -10,11 +10,11 @@ import RealmSwift
 
 class Activity: Object, Identifiable{
     @Persisted var name: String
-    @Persisted private var activityColor: ActivityColor?
+    @Persisted var activityColor: ActivityColor?
     @Persisted var tasks = RealmSwift.List<Task>()
     @Persisted(primaryKey: true) var id: String = UUID().uuidString
     var color: Color{
-        get{ return (activityColor?.color)!}
+        get{ return activityColor?.color ?? Color.clear}
     }
     override init(){
         super.init()
@@ -28,10 +28,6 @@ class Activity: Object, Identifiable{
             tasks.append(task)
         }
     }
-    //frozen対策
-    func Copy() -> Activity{
-        return self//Activity.Get(id: self.id)!
-    }
 }
 
 extension Activity{
@@ -44,7 +40,13 @@ extension Activity{
         }
     }
     static func Delete(_ activity: Activity){
+        //タスクを削除
+        for task in activity.tasks{
+            Task.Delete(task)
+        }
+        //本体を削除
         try! realm_.write {
+            realm_.delete(activity.activityColor!)
             realm_.delete(activity)
         }
     }
@@ -54,7 +56,7 @@ extension Activity{
             return activity
         }
         else{
-            print("activityのidが無効です")
+//            print("activityのidが無効です")
             return nil
         }
     }

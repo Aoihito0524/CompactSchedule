@@ -34,9 +34,15 @@ extension Task{
         }
     }
     static func Delete(_ task: Task){
+        if let scheduleItem = ScheduleItem_with(task){//予定に入っていればそれも消す
+            ScheduleItem.Delete(scheduleItem)
+        }
         try! realm_.write {
             realm_.delete(task)
         }
+    }
+    private static func ScheduleItem_with(_ task: Task) -> ScheduleItem?{
+        return realm_.objects(ScheduleItem.self).filter("taskId == '\(task.id)'").first
     }
 }
 

@@ -22,7 +22,7 @@ struct ScheduleItemView<T: View>: View{
         if scheduleItem.isAlive{
             ZStack(alignment: .leading){
                 //予定の背景部分
-                backgroundContent(width, height, cornerRadius, scheduleItem.activity.color ?? Color.white)
+                backgroundContent(width, height, cornerRadius, scheduleItem.activity.color)
                 //予定の文字部分
                 ZStack{
                     if GetFrameHeight() < thresholdHeight_LayoutChange{
@@ -68,7 +68,7 @@ struct TagAndTaskView_HorizontalLayout: View{
     var body: some View{
         if scheduleItem.isAlive{
             VStack{
-                HStack{
+                HStack(alignment: .top){
                     ActivityTag(activity: scheduleItem.activity)
                     Text(scheduleItem.task.name)
                         .padding(.leading, taskTextPadding)
@@ -78,10 +78,6 @@ struct TagAndTaskView_HorizontalLayout: View{
             }
         }
     }
-}
-
-class ScheduleItemViewSize{
-    static let cornerRadius: CGFloat = 15
 }
 
 struct ActivityTag: View{

@@ -26,9 +26,12 @@ struct ActivityRow: View{
             }
             SlidableRow(minOffset: -DEVICE_WIDTH * 0.1, maxOffset: 0){
                 ZStack{
-                    ActivityRowFrame(color: activity.color ?? Color.white)
+                    ActivityRowFrame(color: activity.color)
+                        .onTapGesture{
+                            listIsOpen.toggle()
+                        }
                     HStack{
-                        Text(activity.name)
+                        TextField("", text: $activity.name)
                             .padding()
                         Spacer()
                         Image(systemName: symbolImageName)
@@ -36,9 +39,6 @@ struct ActivityRow: View{
                     }
                 }
                 .frame(width: ActivityAndTasksRowSize.width)
-            }
-            .onTapGesture{
-                listIsOpen.toggle()
             }
         }
     }

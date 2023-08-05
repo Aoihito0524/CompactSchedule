@@ -27,7 +27,6 @@ struct ActivitiesView: View{
                 .padding(.top, DEVICE_HEIGHT * 0.03)
         }
         .background(BACKGROUND_GRAY_COLOR)
-        .ignoresSafeArea()
     }
 }
 

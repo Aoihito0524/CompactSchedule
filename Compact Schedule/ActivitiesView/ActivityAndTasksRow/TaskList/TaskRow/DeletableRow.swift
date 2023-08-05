@@ -33,5 +33,8 @@ struct DeletableRow<T: View>: View{
         }
         .frame(width: rowWidth, alignment: .leading)
         .clipped()
+        .contentShape(Rectangle()) //※1 非表示エリアのタップを防ぐ
     }
 }
+
+//※1: https://qiita.com/ShinTTK/items/9c8899dfe52770ce559b

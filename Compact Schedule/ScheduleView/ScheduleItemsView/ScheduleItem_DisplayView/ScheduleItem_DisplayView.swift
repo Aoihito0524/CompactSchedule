@@ -11,6 +11,7 @@ struct ScheduleItem_DisplayView: View{
     let scheduleItem: ScheduleItem
     @Binding var editingItem: ScheduleItem?
     @Binding var currentOperate: ScheduleView.Operates
+    let horizontalPadding = DEVICE_WIDTH * 0.05
     var body: some View{
             ScheduleItemView(scheduleItem: scheduleItem){ width, height, cornerRadius, color in
                 ScheduleItemBackground(width: width, height: height, cornerRadius: cornerRadius, color: color)
@@ -22,5 +23,6 @@ struct ScheduleItem_DisplayView: View{
             }
             .padding(.top, scheduleItem.GetTopHeight())
             .setScrollTop()
+            .padding(.horizontal, horizontalPadding)
     }
 }

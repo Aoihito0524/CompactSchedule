@@ -24,12 +24,7 @@ struct TaskRow: View{
                     RoundedRectangle(cornerRadius: 10)
                         .fill(minutesButtonColor)
                         .shadow(radius: 2)
-                    HStack(alignment: .bottom){
-                        Spacer()
-                        Text("２０").font(.caption2)
-                        Text("分").font(.caption2)
-                        Spacer()
-                    }
+                    DurationPicker(minutes: $task.minutes)
                 }
                 .frame(width: DEVICE_WIDTH * 0.11, height: DEVICE_HEIGHT * 0.026)
                 .padding()
@@ -38,5 +33,30 @@ struct TaskRow: View{
     }
     func DeleteTask(){
         Task.Delete(task.thaw()!)
+    }
+}
+
+struct DurationPicker: View{
+    @State var selection: Int
+    @Binding var minutes: Int
+    let minutes_array = Array(1...6).map({$0 * 10})//10分刻み,60分まで
+    init(minutes: Binding<Int>){
+        self._minutes = minutes
+        selection = minutes_array.firstIndex{ $0 == minutes.wrappedValue} ?? 0
+    }
+    var body: some View{
+        Menu{
+            ForEach(minutes_array, id: \.self) { minutesSelect in
+                Button(action: {
+                    minutes = minutesSelect
+                }){
+                    Text("\(minutesSelect)分")
+                }
+            }
+        } label: {
+            Text("\(minutes)分")
+                .font(.caption2)
+                .foregroundColor(Color.black)
+        }
     }
 }
