@@ -10,9 +10,8 @@ import SwiftUI
 struct Compact_ScheduleApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            ContentView_forScreenShot()
+            ContentView()
+//            ContentView_forScreenShot()
         }
     }
 }
-

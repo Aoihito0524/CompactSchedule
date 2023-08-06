@@ -14,7 +14,7 @@ struct ActivitiesView: View{
         ZStack(alignment: .topLeading){
             ScrollView{
                 VStack(spacing: DEVICE_HEIGHT * 0.02){
-                    ForEach(activities, id: \.name){ activity in
+                    ForEach(activities, id: \.id){ activity in
                         ActivityAndTasksRow(activity: activity)
                     }
                     AddActivityRow()
