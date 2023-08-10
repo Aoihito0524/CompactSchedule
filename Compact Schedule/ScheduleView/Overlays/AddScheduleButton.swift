@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddScheduleButton: View{
-    @Binding var currentOperate: ScheduleView.Operates
+    @Binding var currentOperate: ScheduleViewModel.Operates
     let tapPosition: CGPoint
     var body: some View{
         Button("予定を追加"){

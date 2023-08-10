@@ -14,17 +14,15 @@ struct ActivityRow: View{
     var symbolImageName: String{
         get{ return listIsOpen ? "minus" : "plus"; }
     }
-    init(activity: Activity, listIsOpen: Binding<Bool>){
-        self.activity = activity
-        self._listIsOpen = listIsOpen
-    }
+    let slideMinOffset = -DEVICE_WIDTH * 0.1
+    let slideMaxOffset: CGFloat = 0
     var body: some View{
         ZStack(alignment: .trailing){
             Button(action: {Activity.Delete(activity.thaw()!)}){
                 Image(systemName: "trash")
                     .foregroundColor(Color.black)
             }
-            SlidableRow(minOffset: -DEVICE_WIDTH * 0.1, maxOffset: 0){
+            SlidableRow(minOffset: slideMinOffset, maxOffset: slideMaxOffset){
                 ZStack{
                     ActivityRowFrame(color: activity.color)
                         .onTapGesture{
@@ -32,10 +30,10 @@ struct ActivityRow: View{
                         }
                     HStack{
                         TextField("", text: $activity.name)
-                            .padding()
+                            .padding(.horizontal)
                         Spacer()
                         Image(systemName: symbolImageName)
-                            .padding()
+                            .padding(.horizontal)
                     }
                 }
                 .frame(width: ActivityAndTasksRowSize.width)
@@ -44,27 +42,4 @@ struct ActivityRow: View{
     }
 }
 
-class SlideObserver: ObservableObject{
-    @Published var StartLocation = CGPoint.zero
-    @Published var offset = CGFloat.zero
-    @Published var isDragStart = true
-    let minOffset: CGFloat
-    let maxOffset: CGFloat
-    init(minOffset: CGFloat, maxOffset: CGFloat){
-        self.minOffset = minOffset
-        self.maxOffset = maxOffset
-    }
-    func SetDragInfo_AtStart(location: CGPoint){
-        StartLocation = location
-    }
-    func SetOffset(location: CGPoint){
-        offset = location.x - StartLocation.x
-        if offset < minOffset{
-            offset = minOffset
-        }
-        else if offset > maxOffset{
-            offset = maxOffset
-        }
-    }
-}
 

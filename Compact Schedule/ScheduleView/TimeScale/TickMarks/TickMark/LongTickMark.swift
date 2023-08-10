@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct LongTickMark: View{
+    let length = DEVICE_WIDTH * 0.06 //目盛りの長さ
     var body: some View{
-        TickMark(length: DEVICE_WIDTH * 0.06)
+        TickMark(length: length)
     }
 }

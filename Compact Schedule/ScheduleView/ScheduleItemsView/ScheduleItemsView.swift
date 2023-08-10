@@ -11,7 +11,7 @@ import RealmSwift
 struct ScheduleItemsView: View{
     @ObservedResults(ScheduleItem.self) var scheduleItems
     @Binding var editingItem: ScheduleItem?
-    @Binding var currentOperate: ScheduleView.Operates
+    @Binding var currentOperate: ScheduleViewModel.Operates
     @ObservedObject var realtimeDate = RealtimeDate.shared
     var body: some View{
         ZStack{

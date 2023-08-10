@@ -31,13 +31,19 @@ class ScheduleItem_EditViewModel: ObservableObject{
     }
     //上端を動かす
     private func SetTopEdge(location: CGPoint){
-        scheduleItem.SetStartDate(height: location.y)
-        StopIfConflicting()
+        RestoreDates(when: {return scheduleItem.SelfCovering() != nil}){
+            //以下の処理後、他の予定を覆う場合は復元する
+            scheduleItem.SetStartDate(height: location.y)
+            StopIfConflicting()
+        }
     }
     //下端を動かす
     private func SetBottomEdge(location: CGPoint){
-        scheduleItem.SetEndDate(height: location.y)
-        StopIfConflicting()
+        RestoreDates(when: {return scheduleItem.SelfCovering() != nil}){
+            //以下の処理後、他の予定を覆う場合は復元する
+            scheduleItem.SetEndDate(height: location.y)
+            StopIfConflicting()
+        }
     }
     private func StopIfConflicting(){
         //上端が下端に当たったとき下端座標でストップする
@@ -52,13 +58,14 @@ class ScheduleItem_EditViewModel: ObservableObject{
     @Published var conflicting = false //最初の衝突を判定するために使う
     //全体を移動させる
     private func SetBodyPosition(location: CGPoint){
-        let backup_StartDate = scheduleItem.startDate
-        let backup_EndDate = scheduleItem.endDate
-        let duration = backup_EndDate.timeIntervalSince(backup_StartDate)
-        scheduleItem.SetStartDate(height: location.y - dragObserver.firstTapDistanceFromTop)
-        scheduleItem.SetEndDate(height: location.y + dragObserver.firstTapDistanceFromBottom)
+        let SetDates = {
+            self.scheduleItem.SetStartDate(height: location.y - self.dragObserver.firstTapDistanceFromTop)
+            self.scheduleItem.SetEndDate(height: location.y + self.dragObserver.firstTapDistanceFromBottom)
+        }
+        let duration = scheduleItem.endDate.timeIntervalSince(scheduleItem.startDate)
         //最初に衝突した時
         if !conflicting{
+            SetDates()
             //上端が衝突した場合
             if let conflictingItem = scheduleItem.SelfTopConflicting(){
                 conflicting = true
@@ -73,15 +80,25 @@ class ScheduleItem_EditViewModel: ObservableObject{
                 scheduleItem.startDate = scheduleItem.endDate - duration
                 return;
             }
+            return;
         }
-    //conclicting = trueの時
-        //重なっている時
-        if scheduleItem.isConflicting(){
+    //conclicting = trueの時(最初の衝突の後、衝突中)
+        RestoreDates(when: scheduleItem.isConflicting){
+            SetDates()
+            //衝突終了判定
+            if !scheduleItem.isConflicting(){
+                conflicting = false
+            }
+        }
+    }
+    private func RestoreDates(when: () -> Bool, function : () -> ()){
+        let backup_StartDate = scheduleItem.startDate
+        let backup_EndDate = scheduleItem.endDate
+        function()
+        if when(){
             scheduleItem.startDate = backup_StartDate
             scheduleItem.endDate = backup_EndDate
         }
-        //重なりが終わった時
-        else{ conflicting = false }
     }
 }
 

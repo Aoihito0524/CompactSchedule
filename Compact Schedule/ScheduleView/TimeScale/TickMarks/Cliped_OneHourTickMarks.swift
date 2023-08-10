@@ -15,9 +15,9 @@ struct Cliped_OneHourTickMarks: View{
             .frame(height: Height(), alignment: .bottom) //alignment: .bottomはframeで拡張、切り取りするときの自身の位置だった
             .clipped()
     }
-    func Height() -> CGFloat{
+    func Height() -> CGFloat{ //ScheduleSizeに定めた時間と間隔の対応からどこまで映すか決める
         let minutesInAnHour = 60
         let minutesLeft = minutesInAnHour - minute
-        return ScheduleSize.oneHourHeight * CGFloat(minutesLeft) / 60.0
+        return ScheduleSize.oneHourHeight * CGFloat(minutesLeft) / CGFloat(minutesInAnHour)
     }
 }

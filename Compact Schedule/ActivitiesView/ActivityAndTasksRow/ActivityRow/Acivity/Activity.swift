@@ -46,7 +46,9 @@ extension Activity{
         }
         //本体を削除
         try! realm_.write {
-            realm_.delete(activity.activityColor!)
+            if let activityColor = activity.activityColor{
+                realm_.delete(activityColor)
+            }
             realm_.delete(activity)
         }
     }
@@ -56,7 +58,7 @@ extension Activity{
             return activity
         }
         else{
-//            print("activityのidが無効です")
+            print("activityのidが無効です")
             return nil
         }
     }

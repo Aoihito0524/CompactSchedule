@@ -10,7 +10,7 @@ import SwiftUI
 struct ScheduleItem_DisplayView: View{
     let scheduleItem: ScheduleItem
     @Binding var editingItem: ScheduleItem?
-    @Binding var currentOperate: ScheduleView.Operates
+    @Binding var currentOperate: ScheduleViewModel.Operates
     let horizontalPadding = DEVICE_WIDTH * 0.05
     var body: some View{
             ScheduleItemView(scheduleItem: scheduleItem){ width, height, cornerRadius, color in

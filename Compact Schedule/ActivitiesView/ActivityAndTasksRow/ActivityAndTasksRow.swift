@@ -11,10 +11,11 @@ import RealmSwift
 struct ActivityAndTasksRow: View{
     @ObservedRealmObject var activity: Activity
     @State var isOpen = false
+    let taskListBackgroundCornerRadius: CGFloat = 20
     let taskListBackgroundColor = Color.white
     var body: some View{
         ZStack{
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: taskListBackgroundCornerRadius)
                 .fill(taskListBackgroundColor)
                 .frame(width: ActivityAndTasksRowSize.width)
             VStack{

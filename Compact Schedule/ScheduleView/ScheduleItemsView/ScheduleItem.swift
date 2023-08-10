@@ -30,6 +30,7 @@ class ScheduleItem: Object, Identifiable{
         set{ try! realm_.write{ endDate_ = newValue }}
     }
     @Persisted(primaryKey: true) var id: String = UUID().uuidString
+    let minDuration = 10 //startとendの間隔の最小。10分
     /*Computed PropertyはRealmのオブジェクトが削除された後もアクセスされることがある。
     ↓アクセス可能かを取得する変数*/
     var isAlive: Bool{
@@ -93,37 +94,43 @@ class ScheduleItem: Object, Identifiable{
     }
     func SetStartDate(date: Date){
         startDate = date
-        if isMoreThan10Min(){return;}
-        endDate = Calendar.current.date(byAdding: .minute, value: 10, to: startDate)!
+        if isMoreThanMinDuration(){return;}
+        endDate = Calendar.current.date(byAdding: .minute, value: minDuration, to: startDate)!
     }
     func SetEndDate(date: Date){
         endDate = date
-        if isMoreThan10Min(){return;}
-        startDate = Calendar.current.date(byAdding: .minute, value: -10, to: endDate)!
+        if isMoreThanMinDuration(){return;}
+        startDate = Calendar.current.date(byAdding: .minute, value: -minDuration, to: endDate)!
     }
-    private func isMoreThan10Min() -> Bool{
-        return endDate.timeIntervalSince(startDate) >= 10 * 60
+    private func isMoreThanMinDuration() -> Bool{
+        let seconds_1min = 60
+        let seconds_MinDuration = minDuration * seconds_1min
+        return endDate.timeIntervalSince(startDate) >= CGFloat(seconds_MinDuration)
     }
     //位置と時間の対応づけ
     private func DateToHeight(date: Date) -> CGFloat{
-        let time = DayHourMinute(date: date)
-        let nowTime = DayHourMinute(date: currentDate)
-        let daysDifference = time.dayCGFloat - nowTime.dayCGFloat
-        let hoursDifference = time.hourCGFloat - nowTime.hourCGFloat
-        let minutesDifference = time.minuteCGFloat - nowTime.minuteCGFloat
-        let hoursCGFloat_UntilTime
-            = daysDifference * 24.0 + hoursDifference + minutesDifference / 60.0
+        let hours_inADay = 24.0
+        let hours_inAMinutes = 1/60.0
+        let DHM = DayHourMinute(date: date)
+        let nowDHM = DayHourMinute(date: currentDate)
+        let DHM_difference = DHM - nowDHM
+        //DHMを時間(hours)で表す
+        var hoursCGFloat_UntilTime = DHM_difference.dayCGFloat * hours_inADay       //日付を加算
+        hoursCGFloat_UntilTime += DHM_difference.hourCGFloat                        //時間を加算
+        hoursCGFloat_UntilTime += DHM_difference.minuteCGFloat * hours_inAMinutes   //分を加算
         let height = hoursCGFloat_UntilTime * ScheduleSize.oneHourHeight
         return height
     }
     private func HeightToDate(height: CGFloat) -> Date{
-        let oneMinutesHeight = ScheduleSize.oneHourHeight / 60.0
+        let minutes_inAnHour = 60
+        let oneMinutesHeight = ScheduleSize.oneHourHeight / CGFloat(minutes_inAnHour)
         let minutesCGFloat_UntilTime = height / oneMinutesHeight
         let minutes_UntilTime = Int(minutesCGFloat_UntilTime)
         let date = Calendar.current.date(byAdding: .minute, value: minutes_UntilTime, to: currentDate)!
         return date
     }
 }
+
 //予定を移動させた際に重ならないように判定
 extension ScheduleItem{
 //重なっている相手を特定
@@ -148,6 +155,14 @@ extension ScheduleItem{
         for scheduleItem in scheduleItems{
             if scheduleItem.id == self.id { continue; }
             if isConflictingWith(scheduleItem){ return scheduleItem;}
+        }
+        return nil;
+    }
+    func SelfCovering() -> ScheduleItem?{
+        let scheduleItems = realm_.objects(ScheduleItem.self)
+        for scheduleItem in scheduleItems{
+            if scheduleItem.id == self.id { continue; }
+            if isCovering(scheduleItem){ return scheduleItem;}
         }
         return nil;
     }
@@ -181,6 +196,7 @@ extension ScheduleItem{
         return true
     }
 }
+
 //static関数
 extension ScheduleItem{
     static func Get(id: String) -> ScheduleItem?{
@@ -219,17 +235,3 @@ extension Date{
     }
 }
 
-struct DayHourMinute{
-    let day: Int
-    let hour: Int
-    let minute: Int
-    var dayCGFloat: CGFloat{ get{ return CGFloat(day)} }
-    var hourCGFloat: CGFloat{ get{ return CGFloat(hour)} }
-    var minuteCGFloat: CGFloat{ get{ return CGFloat(minute)} }
-    init(date: Date){
-        let calendar = Calendar(identifier: .gregorian)
-        day = calendar.component(.day, from: date)
-        hour = calendar.component(.hour, from: date)
-        minute = calendar.component(.minute, from: date)
-    }
-}

@@ -14,9 +14,6 @@ struct AddTaskButton: View{
         Button("+ タスクを追加"){
             let newTask = Task(name: "", minutes: 20)
             activity.thaw()!.AddTask(newTask)
-            //                try! realm_.write {
-            //                    activity.tasks.append(newTask)
-            //                }
         }
     }
 }
